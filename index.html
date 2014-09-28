@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1><img src="images/linkNinjaTitle.png" title="Link Ninja" alt="Link Ninja" /></h1>
-        <p>Firefox extension allowing multiple link selection by tracing a selection rectangle + applying actions to the result</p>
+        <p>Browser extension allowing multiple link selection + applying of actions to the result.</p>
 
         <p class="view"><a href="https://github.com/aleciten/link-ninja">View the Project on GitHub <small>aleciten/link-ninja</small></a></p>
 
@@ -29,16 +29,9 @@
       </header>
       <section>
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="general-notes" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>General notes</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p><code>Link Ninja</code> is a browser extension (currently only available for Mozilla Firefox) that allows you to select multiple links in one go by drawing a selection rectangle. Once you release the selection, the configured default action will be applied to the links. Link Ninja allows you to set up targeting rules in order to restrict the link elements that are available for selection. Targeting rules can be set up by specifying a URL pattern (ex: *.google.com/*) or CSS selector (ex: a.someclass), and can be configured to include or exclude the results.</p>
 
 <h3>
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
@@ -46,14 +39,16 @@ $ git checkout gh-pages
 <p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="basic-usage" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Basic usage</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>By default <code>Link Ninja</code> is set up to start selecting by right clicking and dragging. Upon release of the right mouse button, the configured action will be applied to the selection; which by default is to open the selected links into tabs. If instead of releasing the right button the left mouse button is clicked, a pop-up will be shown with all of the available actions to perform on the selection.</p>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="targeting-rules" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Targeting rules</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>In order to restrict the selectable links, targeting rules can me specified.</p>
+<p>Select "Create targeting rule" from the <code>Link Ninja</code> tool-bar.</p>
+
 
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
