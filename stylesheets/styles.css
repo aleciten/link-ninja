@@ -28,6 +28,14 @@ h2 {
   color:#393939;
 }
 
+h3 {
+  font-size:18px;
+  margin-top:50px;  
+}
+h3:first-child {
+  margin-top:20px;
+}
+
 h3, h4, h5, h6 {
   color:#494949;
 }
@@ -163,7 +171,6 @@ section {
   width:500px;
   float:right;
   padding-bottom:50px;
-  padding-top:22px;
 }
 
 small {
