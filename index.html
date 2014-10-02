@@ -16,36 +16,38 @@
         <div class="wrapper">
             <header>
                 <h1><img src="images/linkNinjaTitle.png" title="Link Ninja" alt="Link Ninja" /></h1>
-                
-                <p>Current version: xx</p>
-                <p>Available platforms:</p>
-                
+                <p><i>Select multiple links by drawing a rectangle with your mouse and apply actions to the result.</i></p>
+				<br/><br/>
+                <p>Current version: <code>0.6</code></p>				
+                <p style="margin-bottom:5px">Choose your platform:</p>
                 <ul>
-                    <li><a href="https://github.com/aleciten/link-ninja/zipball/master">Download <strong>ZIP File</strong></a></li>
-                    <li><a href="https://github.com/aleciten/link-ninja/tarball/master">Download <strong>TAR Ball</strong></a></li>
-                    <li><a href="https://github.com/aleciten/link-ninja">View On <strong>GitHub</strong></a></li>
-                </ul>
+                    <li><a href="#"><img src="images/firefox_32x32.png"/><span>Firefox</span></a></li>
+                	<li class="unavailable"><a href="#" alt="Not yet available" title="Not yet available"><img src="images/chrome_32x32.png"/><span>Chrome</span></a></li>
+				    <li class="unavailable"><a href="#" alt="Not yet available" title="Not yet available"><img src="images/opera_32x32.png"/><span>Opera</span></a></li>
+                </ul>				
             </header>
             
             <section>                
-                <h3><a name="general-notes" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>What is this?</h3>
-                <p><code>Link Ninja</code> is a browser extension that allows you to select multiple links in one go by drawing a selection rectangle with your mouse. Once your selection is complete a configurable action can be applied to the result.<br/>
+                <h2><a name="general-notes" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>What is this?</h2>
+                <p><strong>Link Ninja</strong> is a browser extension that allows you easily select multiple links by opening a selection rectangle with your mouse. Once your selection is complete a configurable action can be applied to the result.<br/>
                 Available actions include: open in tabs, open in tabs on demand (ie: load tab contents when clicking the tab), open in tabs deferred (ie: delay between each tab opening), copy to clipboard (allowing custom formatting), and bookmark.</p>
-                <p>You can set up targeting rules in order to restrict the link elements that are available for selection. Targeting rules can be set up by specifying a URL pattern (ex: <code>*.google.com/*</code>) or CSS selector (ex: <code>.someclass</code>), and can be configured to either include or exclude the results of the match.</p>
+                <p>You can set up targeting rules in order to restrict the link elements available for selection. Targeting rules can be configured by specifying a CSS selector (ex: <code>.someclass</code>) or URL pattern (ex: <code>*.google.com/*</code>).</p>
                 <p><iframe src="http://gfycat.com/ifr/HilariousPartialKestrel" frameborder="0" scrolling="no" width="510" height="382" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" ></iframe></p>
 
                 <h3><a name="basic-usage" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Basic usage</h3>
-                <p>By default, <code>Link Ninja</code> is set up to start selecting by right clicking and dragging. Upon release of the right mouse button, the configured action will be applied to the selection; which by default is to open the selected links into tabs. If instead of releasing the right button the left mouse button is clicked, a pop-up with all of the available actions will be presented.</p>
+                <p>By default, <strong>Link Ninja</strong> is set up to start selecting by right clicking and dragging. Upon release of the right mouse button, the configured action will be applied to the selection; which by default is to open the selected links into tabs. If instead of releasing the right button the left mouse button is clicked, a pop-up with all of the available actions will be shown.<br/>
+				If you want to cancel the selection, just press the escape key.</p>
+				<p>Triggers for selection start, selection cancel, and showing the action menu can be configured in the options dialog; as well as the actions and visual settings.</p>
 
                 <h3><a name="targeting-rules" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Targeting rules</h3>
-                <p>A link will be available for selection when it matches at least one include rule and no exclude rules.</p>
+                <p>A link will be available for selection when it matches at least one include rule and no exclude rules bound to the current page's URL.</p>
                 <p>To create a targeting rule:
                     <br/>
                     <ol>
-                        <li>Select "Create targeting rule" from the <code>Link Ninja</code> toolbar button.</li>
+                        <li>Select <strong>Create targeting rule</strong> from the <strong>Link Ninja</strong> toolbar button.</li>
                         <li>Set the rule type:<br/>
-                            For <code>Inclusion rules</code> the results of the match will be available for selection.<br/>
-                            For <code>Exclusion rules</code> the results of the match will NOT be available for selection.
+                            For <strong>Inclusion rules</strong> the results of the match will be available for selection.<br/>
+                            For <strong>Exclusion rules</strong> the results of the match will NOT be available for selection.
                         </li>
                         <li>Choose the targeting type:<br/>
                             For CSS selector targeting enter any valid <a href="http://www.w3schools.com/cssref/css_selectors.asp" alt="CSS3 selector reference" title="CSS3 selector reference">CSS3 selector</a> that will target the intended links. For example: <code>a[target='_blank']</code>
@@ -56,7 +58,7 @@
                     </ol>
                 </p>
                 <p style="text-align:center"><img src="images/createTargetingRule.png" alt="Create targeting rule" title="Create targeting rule" /></p>
-                <p>To manage configured targeting rules select <code>Manage targeting rules</code> from the <code>Link Ninja</code> toolbar button.</p>
+                <p>To manage configured targeting rules select <strong>Manage targeting rules</strong> from the <strong>Link Ninja</strong> toolbar button.</p>
                 <p style="text-align:center"><img src="images/manageTargetingRules.png" alt="Manage targeting rules" title="Manage targeting rules" /></p>
 
                 <h3><a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Found any bugs?</h3>
