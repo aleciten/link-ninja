@@ -1,5 +1,6 @@
 *.sublime-project
 *.sublime-workspace
+gulpfile.user.json
 node_modules/
 build/
 dist/
