@@ -1,0 +1,8 @@
+content   linkNinja                 chrome/content/
+skin      linkNinja   classic/1.0   chrome/skin/
+
+overlay	chrome://browser/content/browser.xul			chrome://linkNinja/content/overlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://linkNinja/skin/overlay.css
+
+locale linkNinja en-US chrome/locale/en-US/
+locale linkNinja es-AR chrome/locale/es-AR/

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet type="text/css" href="chrome://linkNinja/skin/manageTargetingRulesDialog.css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://linkNinja/locale/main.dtd">
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="Link Ninja | &manageRules.dialogTitle;"
+        buttons="accept,cancel"      
+        buttonlabelcancel="&dialogs.cancelButton;"
+        buttonlabelaccept="&dialogs.acceptButton;"
+        ondialogaccept="return onDialogAccept()"
+        ondialogcancel="return onDialogCancel()"
+        width="650"      
+        onload="onLoad()"
+>
+    <script src="manageTargetingRules.js"/>
+
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="strings" src="chrome://linkNinja/locale/main.properties"/>
+    </stringbundleset>
+
+    <menupopup id="targetingRuleActionMenu">
+        <menuitem label="&manageRules.treePopup.create;" command="tr-delete-command"/>
+        <menuitem label="&manageRules.treePopup.delete;" command="tr-delete-command"/>
+    </menupopup>
+
+    <commandset id="targetingRulesCommandset">
+        <command id="tr-delete-command" oncommand="deleteTargetingRule();"/>
+    </commandset>
+    
+    <vbox>
+        <radiogroup id="filterRadioGroup" oncommand="onFilterChange()">
+            <grid>
+                <columns>
+                    <column/><column/><column/><column flex="1"/>
+                </columns>
+                <rows>
+                    <row align="center">
+                        <description value="&manageRules.filter.description;:"/>
+                        <radio id="radioFilterByCurrentUrl" label="&manageRules.filter.currentUrl;" value="filter" selected="true" onchange="onFilterRadioChanged(e)" persist="selected" />
+                        <radio id="radioFilterByAllUrls" label="&manageRules.filter.allUrls;" selected="false" value="all" onchange="onFilterRadioChanged(e)" persist="selected" />
+                        <separator />
+                    </row>
+                </rows>
+            </grid>
+        </radiogroup>
+
+        <tree id="targetingRulesTree" editable="true" hidecolumnpicker="true" seltype="single" enableColumnDrag="true" rows="10">
+            <treecols>
+                <treecol label="Id" hidden="true"/>
+                <splitter class="tree-splitter"/>            
+                <treecol id="col-enabled" label="&manageRules.column.enabled;" type="checkbox" editable="true" flex="1" persist="width ordinal sortDirection"/>
+                <splitter class="tree-splitter"/>
+                <treecol id="colRuleType" editable="false" label="&manageRules.column.ruleType;" flex="2" persist="width ordinal sortDirection"/>
+                <splitter class="tree-splitter"/>
+                <treecol id="colBoundTo" editable="true" label="&manageRules.column.boundUrl;" flex="8" persist="width ordinal sortDirection"/>
+                <splitter class="tree-splitter"/>        
+                <treecol id="colTargetType" editable="false" label="&manageRules.column.targetingType;" flex="2" persist="width ordinal sortDirection"/>
+                <splitter class="tree-splitter"/>
+                <treecol id="colTargetValue" editable="true" label="&manageRules.column.targetingValue;" flex="8" persist="width ordinal sortDirection"/>        
+            </treecols>
+
+            <treechildren id="targetingRulesTreeChildren" context="targetingRuleActionMenu" />      
+        </tree>
+
+    </vbox>
+</dialog>

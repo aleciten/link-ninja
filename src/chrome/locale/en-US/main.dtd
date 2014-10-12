@@ -1,0 +1,81 @@
+<!ENTITY toolbarMenu.createTargetingRule                    "Create targeting rule">
+<!ENTITY toolbarMenu.manageTargetingRules                   "Manage targeting rules">
+<!ENTITY toolbarMenu.options                                "Options">
+
+<!ENTITY dialogs.acceptButton                               "OK">
+<!ENTITY dialogs.cancelButton                               "Cancel">
+
+<!ENTITY createRule.dialogTitle                             "Create targeting rule">
+<!ENTITY createRule.acceptButton                            "Create">
+<!ENTITY createRule.inclusionRule                           "Inclusion rule">
+<!ENTITY createRule.exclusionRule                           "Exclusion rule">
+<!ENTITY createRule.ruleDefinition                          "Rule definition">
+<!ENTITY createRule.cssSelector                             "CSS selector">
+<!ENTITY createRule.urlPattern                              "URL pattern">
+<!ENTITY createRule.cssSelector.description                 "Provide a CSS selector that will match the intended link.">
+<!ENTITY createRule.urlPattern.description                  "Provide a URL wildcard pattern that will match the link's target URL (HREF).">
+<!ENTITY createRule.bindToGroup                             "Bind to">
+<!ENTITY createRule.notesGroup                              "Notes">
+<!ENTITY createRule.notes.ruleNegationText                  "If the first character of the rule is an exclamation mark, it will negate the match.">
+<!ENTITY createRule.notes.ruleMatchingText                  "A link will be selectable if it matches at least one inclusion rule and no exclusion rules.">
+
+<!ENTITY manageRules.dialogTitle                            "Manage targeting rules">
+<!ENTITY manageRules.filter.description                     "Show rules applying to">
+<!ENTITY manageRules.filter.currentUrl                      "Current URL">
+<!ENTITY manageRules.filter.allUrls                         "All URLs">
+<!ENTITY manageRules.column.enabled                         "Enabled">
+<!ENTITY manageRules.column.ruleType                        "Rule type">
+<!ENTITY manageRules.column.boundUrl                        "Bound to">
+<!ENTITY manageRules.column.targetingType                   "Targeting type">
+<!ENTITY manageRules.column.targetingValue                  "Targeting value">
+<!ENTITY manageRules.ruleTypeInclude                        "Include">
+<!ENTITY manageRules.ruleTypeExclude                        "Exclude">
+<!ENTITY manageRules.treePopup.create                       "Create new">
+<!ENTITY manageRules.treePopup.delete                       "Delete">
+
+<!ENTITY options.dialogTitle                                "Options">
+
+<!ENTITY options.triggersPane.title                         "Triggers">
+<!ENTITY options.triggersPane.startSelection                "Start selection">
+<!ENTITY options.triggersPane.button                        "Button">
+<!ENTITY options.triggersPane.buttonLeft                    "Left">
+<!ENTITY options.triggersPane.buttonMiddle                  "Middle">
+<!ENTITY options.triggersPane.buttonRight                   "Right">
+<!ENTITY options.triggersPane.modifiers                     "Modifiers">
+<!ENTITY options.triggersPane.modifierShift                 "Shift">
+<!ENTITY options.triggersPane.modifierCtrl                  "Ctrl">
+<!ENTITY options.triggersPane.modifierAlt                   "Alt">
+<!ENTITY options.triggersPane.cancelSelection               "Cancel selection">
+<!ENTITY options.triggersPane.displayActionMenu             "Display action menu">
+<!ENTITY options.triggersPane.key                           "Key">
+
+<!ENTITY options.actionPane.title                           "Action">
+<!ENTITY options.actionPane.openTabs                        "Open in tabs">
+<!ENTITY options.actionPane.openTabs.description            "Open in tabs in the current window.">
+<!ENTITY options.actionPane.openTabsDeferred                "Open in tabs (deferred)">
+<!ENTITY options.actionPane.openTabsDeferred.description    "Delay each tab opening.">
+<!ENTITY options.actionPane.openTabsDeferred.delay          "Delay">
+<!ENTITY options.actionPane.openTabsDeferred.seconds        "seconds">
+<!ENTITY options.actionPane.openTabsOnDemand                "Open in tabs (on demand)">
+<!ENTITY options.actionPane.openTabsOnDemand.description    "Only load contents on tab click.">
+<!ENTITY options.actionPane.openTabsInNewWindow             "Open in new window">
+<!ENTITY options.actionPane.openTabsInNewWindow.description "Open in tabs in a new window.">
+<!ENTITY options.actionPane.copyToClipboard                 "Copy to clipboard">
+<!ENTITY options.actionPane.copyToClipboard.description     "Format links and copy to clipboard.">
+<!ENTITY options.actionPane.copyToClipboard.format          "Format">
+<!ENTITY options.actionPane.copyToClipboard.linkUrl         "Link's URL">
+<!ENTITY options.actionPane.copyToClipboard.linkText        "Link's text">
+<!ENTITY options.actionPane.copyToClipboard.newLine         "New line">
+<!ENTITY options.actionPane.bookmark                        "Bookmark">
+<!ENTITY options.actionPane.bookmark.description            "Bookmark links in a selectable folder.">
+
+<!ENTITY options.appearencePane.title                       "Visuals">
+<!ENTITY options.appearencePane.selectorGroup               "Selector">
+<!ENTITY options.appearencePane.selectableGroup             "Selectable">
+<!ENTITY options.appearencePane.fillColor                   "Fill color">
+<!ENTITY options.appearencePane.borderColor                 "Border color">
+<!ENTITY options.appearencePane.opacity                     "Opacity">
+<!ENTITY options.appearencePane.preview                     "Preview">
+
+
+
