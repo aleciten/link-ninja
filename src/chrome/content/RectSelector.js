@@ -27,6 +27,7 @@
             left:   this.origin.x 
         };
 
+        this.processTimes = [];
         this.setupUI();
     };
     _.extend(RectSelector.prototype, {
@@ -51,6 +52,8 @@
                 this.moveEventHandler = null;
             }
 
+            console.log("Times");
+            console.log(this.processTimes);
             this.stopTimers();
         },
         
@@ -61,12 +64,13 @@
             if (self.findHitsRunning) return;
             
             self.findHitsRunning = true;
-            
+            console.start
             var rb        = self.rectBounds;
             var c         = self.canvas;
             var chunks    = _.chunkize(self.selectables, this.chunkSize);
             var selection = [];
 
+            var processStart = (new Date()).getTime();
             var processChunk = function (chunk, signalEnd) {                
                 try {
                     _(chunk).each(function (s) {
@@ -92,7 +96,9 @@
                 }
             };
         
-            _.defer(processChunk, chunks.shift(), function () {             
+            _.defer(processChunk, chunks.shift(), function () {
+                var processEnd = (new Date()).getTime();
+                self.processTimes.push(processEnd - processStart);
                 var hitCount = self.selectionChanged(selection);                
                 self.findHitsRunning = false;
 
@@ -224,23 +230,17 @@
             return _.extend({},this.mouse);
         },
 
-        handleMouseMove: function (e) {
-            var newMouse = screen.toAbsolute(e);
-            if (newMouse.x === this.mouse.x && newMouse.y === this.mouse.y)
-                return;
-            
-            this.mouse = newMouse;
+        handleMouseMove: function (e) {           
+            this.mouse = screen.toAbsolute(e);
             this.mouse.screenX = e.screenX;
             this.mouse.screenY = e.screenY;
-
-            this.findHits(); 
         },
 
         startTimers: function () {
             this.stopTimers();
 
             this.findHitsTimer = this.window.setInterval(function () { 
-                //this.findHits(); 
+                this.findHits(); 
             }.bind(this), 10);
 
             this.updateInterfaceTimer = this.window.setInterval(function () { 
