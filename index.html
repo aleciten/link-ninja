@@ -18,7 +18,7 @@
                 <h1><img src="images/linkNinjaTitle.png" title="Link Ninja" alt="Link Ninja" /></h1>
                 <p><i>Select multiple links by drawing a rectangle with your mouse and apply actions to the result.</i></p>
 				<br/><br/>
-                <p>Current version: <code>0.6</code></p>				
+                <p>Current version: <code>1.0</code></p>				
                 <p style="margin-bottom:5px">Choose your platform:</p>
                 <ul>
                     <li><a href="#"><img src="images/firefox_32x32.png"/><span>Firefox</span></a></li>
@@ -29,9 +29,9 @@
             
             <section>                
                 <h2><a name="general-notes" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>What is this?</h2>
-                <p><strong>Link Ninja</strong> is a browser extension that allows you easily select multiple links by opening a selection rectangle with your mouse. Once your selection is complete a configurable action can be applied to the result.<br/>
+                <p><strong>Link Ninja</strong> is a browser extension that allows you to swiftly select multiple links by opening a selection rectangle with your mouse. Once your selection is complete a configurable action can be applied to the result.<br/>
                 Available actions include: open in tabs, open in tabs on demand (ie: load tab contents when clicking the tab), open in tabs deferred (ie: delay between each tab opening), copy to clipboard (allowing custom formatting), and bookmark.</p>
-                <p>You can set up targeting rules in order to restrict the link elements available for selection. Targeting rules can be configured by specifying a CSS selector (ex: <code>.someclass</code>) or URL pattern (ex: <code>*.google.com/*</code>).</p>
+                <p><a href="#targeting-rules">Targeting rules</a> can be set up to restrict link elements available for selection, and can be configured by specifying a CSS selector or URL pattern.</p>
                 <p>
                     <a href="http://www.gfycat.com/FlatMatureGrunion">
 				        <video class="gfyVidIframe" id="gfyVid" autoplay="true" loop="true" poster="//thumbs.gfycat.com/FlatMatureGrunion-poster.jpg" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" width="100%">
@@ -42,9 +42,11 @@
 				</p>
 
                 <h3><a name="basic-usage" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Basic usage</h3>
-                <p>By default, <strong>Link Ninja</strong> is set up to start selecting by right clicking and dragging. Upon release of the right mouse button, the configured action will be applied to the selection; which by default is to open the selected links into tabs. If instead of releasing the right button the left mouse button is clicked, a pop-up with all of the available actions will be shown.<br/>
-				If you want to cancel the selection, just press the escape key.</p>
-				<p>Triggers for selection start, selection cancel, and showing the action menu can be configured in the options dialog; as well as the actions and visual settings.</p>
+                <p>By default, <strong>Link Ninja</strong> is set up to start selecting by right clicking and dragging.<br/>
+				If no <a href="#targeting-rules">targeting rules</a> are bound to the current URL, links will be filtered by the biggest font size within the selected set.<br/>
+				Upon release of the right mouse button the configured action will be applied to the selection, which, by default, is to open the selected links into tabs. If, instead of releasing the right button, the left mouse button is clicked, a pop-up with all of the available actions will be shown.<br/>
+				If you want to cancel the selection just press the escape key.</p>
+				<p>Triggers for selection start, selection cancel, and showing the action menu can be configured in the options dialog; as well as action, and visual settings.</p>
 
                 <h3><a name="targeting-rules" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Targeting rules</h3>
                 <p>A link will be available for selection when it matches at least one include rule and no exclude rules bound to the current page's URL.</p>
@@ -67,7 +69,9 @@
                 <p style="text-align:center"><img src="images/createTargetingRule.png" alt="Create targeting rule" title="Create targeting rule" /></p>
                 <p>To manage configured targeting rules select <strong>Manage targeting rules</strong> from the <strong>Link Ninja</strong> toolbar dropdown.</p>
                 <p style="text-align:center"><img src="images/manageTargetingRules.png" alt="Manage targeting rules" title="Manage targeting rules" /></p>
-
+				<p>You can edit a rule's <span class="italics">bound URL</span> and <span class="italics">targeting value</span> by double clicking on the appropriate cell, as well as toggle the <span class="italics">enabled</span> status.<br/>
+				Right click on a rule for a context menu with more options.</p>
+				
                 <h3><a name="integrations" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Supported extensions</h3>
                 <p><strong>Link Ninja</strong> plays nice with the following extensions:
                     <ul>
@@ -80,9 +84,9 @@
             
             <footer>                
                 <p>
-                    This project is maintained by <a href="https://github.com/aleciten">aleciten</a>
+                    This project is maintained by <a href="https://github.com/aleciten">aleciten</a>.
                     <br/>
-                    Please report bugs <a href="ttps://github.com/aleciten/link-ninja/issues">here</a>
+                    Please report bugs <a href="ttps://github.com/aleciten/link-ninja/issues">here</a>.
                 </p>
                 <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
             </footer>

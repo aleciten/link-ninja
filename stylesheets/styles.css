@@ -79,6 +79,10 @@ code, pre {
   font-size:14px;
 }
 
+.italics {
+	font-style:italic;
+}
+
 pre {
   padding:8px 15px;
   background: #f8f8f8;  
