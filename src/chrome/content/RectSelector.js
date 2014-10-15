@@ -27,7 +27,6 @@
             left:   this.origin.x 
         };
 
-        this.processTimes = [];
         this.setupUI();
     };
     _.extend(RectSelector.prototype, {
@@ -52,8 +51,6 @@
                 this.moveEventHandler = null;
             }
 
-            console.log("Times");
-            console.log(this.processTimes);
             this.stopTimers();
         },
         
@@ -64,7 +61,6 @@
             if (self.findHitsRunning) return;
             
             self.findHitsRunning = true;
-            console.start
             var rb        = self.rectBounds;
             var c         = self.canvas;
             var chunks    = _.chunkize(self.selectables, this.chunkSize);
@@ -97,8 +93,6 @@
             };
         
             _.defer(processChunk, chunks.shift(), function () {
-                var processEnd = (new Date()).getTime();
-                self.processTimes.push(processEnd - processStart);
                 var hitCount = self.selectionChanged(selection);                
                 self.findHitsRunning = false;
 
