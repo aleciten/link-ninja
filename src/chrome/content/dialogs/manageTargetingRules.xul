@@ -16,12 +16,11 @@
 >
     <script src="manageTargetingRules.js"/>
 
-    <stringbundleset id="stringbundleset">
-        <stringbundle id="strings" src="chrome://linkNinja/locale/main.properties"/>
+    <stringbundleset>
+        <stringbundle id="linkNinja-manageTargetingRulesStringBundle" src="chrome://linkNinja/locale/main.properties"/>
     </stringbundleset>
 
-    <menupopup id="targetingRuleActionMenu">
-        <menuitem label="&manageRules.treePopup.create;" command="tr-delete-command"/>
+    <menupopup id="targetingRuleActionMenu">        
         <menuitem label="&manageRules.treePopup.delete;" command="tr-delete-command"/>
     </menupopup>
 
@@ -47,10 +46,9 @@
         </radiogroup>
 
         <tree id="targetingRulesTree" editable="true" hidecolumnpicker="true" seltype="single" enableColumnDrag="true" rows="10">
-            <treecols>
-                <treecol label="Id" hidden="true"/>
+            <treecols>                
                 <splitter class="tree-splitter"/>            
-                <treecol id="col-enabled" label="&manageRules.column.enabled;" type="checkbox" editable="true" flex="1" persist="width ordinal sortDirection"/>
+                <treecol id="colEnabled" label="&manageRules.column.enabled;" type="checkbox" editable="true" flex="1" persist="width ordinal sortDirection"/>
                 <splitter class="tree-splitter"/>
                 <treecol id="colRuleType" editable="false" label="&manageRules.column.ruleType;" flex="2" persist="width ordinal sortDirection"/>
                 <splitter class="tree-splitter"/>
