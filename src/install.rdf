@@ -4,7 +4,7 @@
         <em:id>linkNinja@aleciten.com</em:id>
         <em:version></em:version>
         <em:name>Link Ninja</em:name>
-        <em:description>Select multiple links through a selection rectangle and apply actions to them.</em:description>
+        <em:description>Select multiple links and apply actions to them.</em:description>
         <em:creator>Ale Becher</em:creator>
         <em:targetApplication>
             <Description>                
