@@ -7,6 +7,7 @@
 <overlay id="linkNinja-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="init.js" />
     <script src="Underscore.js" />
+    <script src="UnderscoreMixins.js" />
     <script src="prefs.js" />
     <script src="screen.js"/>
     <script src="actions.js"/>
