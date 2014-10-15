@@ -1,19 +1,97 @@
-var _                = window.opener.aleciten.linkNinja._,
-    tree             = null,
-    treeChildren     = null,
-    filterRadioGroup = null,
-    targetingRules   = null,
-    args             = {},
-    url              = "",
-    stringBundle     = null,
-    valueMaps        = null;
+var _                 = window.opener.aleciten.linkNinja._,
+    tree              = null,    
+    filterRadioGroup  = null,
+    allTargetingRules = null,    
+    args              = {},
+    url               = "",
+    stringBundle      = null,
+    valueMaps         = null;
+
+var treeView = {
+    get rowCount () { return this.dataSource.length; },
+    dataSource: null,
+    getCellText : function(row,col) {  
+        var dataSource = this.dataSource;
+
+        if (col.id == "colId") {
+            return dataSource[row].id;
+        }        
+        else if (col.id == "colRuleType") {
+            return valueMaps.ruleType[dataSource[row].ruleType];
+        }
+        else if (col.id == "colBoundTo") {
+            return dataSource[row].boundUrl;
+        }
+        else if (col.id == "colTargetType") {
+            return valueMaps.targetType[dataSource[row].targetType];
+        }
+        else if (col.id == "colTargetValue") {
+            return dataSource[row].targetValue;
+        }        
+    },
+    getCellValue: function (row, col) {
+        var dataSource = this.dataSource;
+        if (col.id == "colEnabled") {
+            return dataSource[row].enabled;
+        }
+    },
+    getTargetingRuleFromRow: function (row) {
+        var localRule = this.dataSource[row];
+        var rule = _(allTargetingRules).findWhere({ id: localRule.id });
+        return rule
+    },
+    setMaster: function (id, prop, val) {
+        var tr = _(allTargetingRules).findWhere({ id: id });
+        tr[prop] = val;
+    },
+    setCellText: function (row, col, value) {
+        var dataSource = this.dataSource;
+        var masterRule = this.getTargetingRuleFromRow(row);
+
+        if (col.id == "colBoundTo") {
+            dataSource[row].boundUrl = value;
+            masterRule.boundUrl = value;
+        }
+        else if (col.id == "colTargetValue") {
+            dataSource[row].targetValue = value;
+            masterRule.targetValue = value;
+        }
+    },
+    setCellValue: function (row, col, value) {
+        var dataSource = this.dataSource;
+        var masterRule = this.getTargetingRuleFromRow(row);
+        
+        if (col.id == "colEnabled") {
+            dataSource[row].enabled = (value === "true");
+            masterRule.enabled = (value === "true");
+        }     
+    },
+    deleteRow: function (row) {
+        var masterRule = this.getTargetingRuleFromRow(row);
+
+        this.dataSource.splice(row,1);
+        allTargetingRules.splice(allTargetingRules.indexOf(masterRule), 1);
+        this.treebox.rowCountChanged(row, -1);
+    },
+    setTree: function(treebox){ this.treebox = treebox; },
+    isContainer: function(row){ return false; },
+    isSeparator: function(row){ return false; },
+    isSorted: function(){ return false; },
+    isEditable: function (row, col) { 
+        return (["colEnabled", "colBoundTo", "colTargetValue"].indexOf(col.id) >= 0);
+    },
+    getLevel: function(row){ return 0; },
+    getImageSrc: function(row,col){ return null; },
+    getRowProperties: function(row,props){},
+    getCellProperties: function(row,col,props){},
+    getColumnProperties: function(colid,col,props){}
+};
 
 function onLoad() { 
-    args = window.arguments[0];
-    stringBundle = document.getElementById("strings");
-    url = args.url;
-    tree = document.getElementById("targetingRulesTree");
-    treeChildren = document.getElementById("targetingRulesTreeChildren");
+    args             = window.arguments[0];
+    url              = args.url;
+    stringBundle     = document.getElementById("linkNinja-manageTargetingRulesStringBundle");
+    tree             = document.getElementById("targetingRulesTree");    
     filterRadioGroup = document.getElementById("filterRadioGroup");
     
     valueMaps = {
@@ -26,7 +104,7 @@ function onLoad() {
             "urlPattern":  stringBundle.getString("rule.urlPattern")
         }
     };
-    
+
     loadTargetingRules();
     refreshTree(filterRadioGroup.selectedItem.value === "filter");
 
@@ -47,102 +125,34 @@ function onFilterChange() {
 }
 
 function getCleanTargetingRules() {
-    var cleanRules = _.clone(targetingRules);
+    var cleanRules = _.clone(allTargetingRules);
     _(cleanRules).each(function (tr) { delete tr.id; });        
 
     return cleanRules;
 }
 
-function getMappedValue(prop, val) {
-    var map = valueMaps[prop];
-    if (map&&map[val]) return map[val];
-    else return val;
-}
-
-function createRuleEntry(id, enabled, ruleType, boundUrl, targetType, targetValue) {
-    var ti = document.createElement("treeitem");
-    var tr = document.createElement("treerow");
-    
-    var tcId = document.createElement("treecell");
-    tcId.setAttribute("label", id);
-    tcId.setAttribute("data-propertyName", "id");   
-    
-    var tcEnabled = document.createElement("treecell");
-    tcEnabled.setAttribute("value", enabled);
-    tcEnabled.setAttribute("data-propertyName", "enabled"); 
-    
-    var tcRuleType = document.createElement("treecell");
-    tcRuleType.setAttribute("label", getMappedValue("ruleType", ruleType));
-    tcRuleType.setAttribute("editable", "false");
-    tcRuleType.setAttribute("data-propertyName", "ruleType");
-
-    var tcBoundUrl = document.createElement("treecell");
-    tcBoundUrl.setAttribute("label", boundUrl);
-    tcBoundUrl.setAttribute("data-propertyName", "boundUrl");   
-
-    var tcTargetType = document.createElement("treecell");
-    tcTargetType.setAttribute("label", getMappedValue("targetType", targetType));
-    tcTargetType.setAttribute("editable", "false");
-    tcTargetType.setAttribute("data-propertyName", "targetType");
-    
-    var tcTargetValue = document.createElement("treecell");
-    tcTargetValue.setAttribute("label", targetValue);
-    tcTargetValue.setAttribute("data-propertyName", "targetValue");
-    
-    tr.appendChild(tcId);
-    tr.appendChild(tcEnabled);
-    tr.appendChild(tcRuleType);
-    tr.appendChild(tcBoundUrl); 
-    tr.appendChild(tcTargetType);
-    tr.appendChild(tcTargetValue);
-    ti.appendChild(tr);
-    tr.addEventListener("DOMAttrModified", onTreeCellAttributeChange, false);
-
-    return ti;
-}
-
-function onTreeCellAttributeChange(e) {
-    var ruleId = e.target.parentNode.childNodes[0].getAttribute("label");
-    var propName = e.target.getAttribute("data-propertyName");
-    var propertyParse = {
-        "enabled": function (node) { return node.getAttribute("value") === "true"; }        
-    };
-    
-    var targetingRule = _(targetingRules).findWhere({ id: ruleId });
-    if (targetingRule) {
-        targetingRule[propName] = propertyParse[propName] ? propertyParse[propName](e.target) : e.target.getAttribute("label");
-    }
-}
-
 function loadTargetingRules() { 
-    targetingRules = args.targetingRules;
-    _.chain(targetingRules)
+    allTargetingRules = _.chain(args.targetingRules)
         .sort(function (tr) { return tr.ruleType; })
         .each(function (tr) { tr.id = _.uniqueId("tr"); })
         .value();
 }
 
 function refreshTree(filter) {
-    var visibleTargetingRules = _.clone(targetingRules);
+    var visibleTargetingRules = _.clone(allTargetingRules);
     
     if (filter) {       
-        visibleTargetingRules = _(targetingRules).reject(function (tr) {
+        visibleTargetingRules = _(visibleTargetingRules).reject(function (tr) {
             return (tr.boundUrl && !_.matchesWildcard(url, tr.boundUrl));
         });
     }
 
-    treeChildren.innerHTML = "";    
-    _(visibleTargetingRules).each(function (tr) {
-        var ti = createRuleEntry(tr.id, !!tr.enabled, tr.ruleType, tr.boundUrl, tr.targetType, tr.targetValue);
-        treeChildren.appendChild(ti);
-    });
+    treeView.dataSource = visibleTargetingRules;    
+    tree.view = treeView;
 }
 
 function deleteTargetingRule() {
-    var item = treeChildren.childNodes[tree.currentIndex];
-    var id = item.childNodes[0].childNodes[0].getAttribute("label");
-
-    targetingRules = _(targetingRules).reject(function (tr) { return tr.id === id; });
-    treeChildren.removeChild(item);
+    var rowIndex = tree.currentIndex;
+    treeView.deleteRow(rowIndex);
 }
 

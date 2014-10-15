@@ -214,7 +214,7 @@
     _.extend(Text.prototype, Shape.prototype, {
         svgType: "text",        
         setText: function (text) {
-            this.elem.innerHTML = text;
+            this.elem.textContent = text;
         }
     });
 
