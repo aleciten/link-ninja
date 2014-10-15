@@ -10,7 +10,7 @@
             buttonlabelaccept="&createRule.acceptButton;"
             ondialogaccept="return onDialogAccept()"
             ondialogcancel="return onDialogCancel()"
-            width="450"      
+            width="510"      
             onload="onLoad()">
 
     <script src="createTargetingRule.js"/>
