@@ -42,7 +42,7 @@ function onDialogAccept() {
 }
 
 function onRuleTypeChanged (menu) { 
-    $("#ruleDescription").innerHTML = menu.selectedItem.getAttribute("data-description");
+    $("#ruleDescription").textContent = menu.selectedItem.getAttribute("data-description");
 }
 
 function refreshBindToList(uri) {
