@@ -34,6 +34,3 @@ pref("extensions.linkNinja.selector.findHitsChunkSize",        30);
 pref("extensions.linkNinja.selectable.fillColor",              "#3399ff");	  		
 pref("extensions.linkNinja.selectable.borderColor",            "#3399ff");	  		
 pref("extensions.linkNinja.selectable.opacity",                10);
-
-// https://developer.mozilla.org/en/Localizing_extension_descriptions
-//pref("extensions.baseextension@developer.com.description", "chrome://base_extension/locale/overlay.properties");
