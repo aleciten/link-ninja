@@ -1,0 +1,6 @@
+Link Ninja
+==========
+
+1.0.3
+-----
+* Updated Underscore.js (1.7) as it was failing the SHA2 checksum checks for AMO validation. 
