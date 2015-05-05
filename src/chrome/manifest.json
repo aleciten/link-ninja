@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Link Ninja",
+  "description": "Description goes here",
+  "version": "1.0",
+
+  //"default_locale": "en",
+  "icons": { 
+    "16": "linkNinja16.png",
+    "24": "linkNinja24.png",
+    "48": "linkNinja48.png",
+    "128": "linkNinja128.png" 
+  },
+
+  "author": "Ale Becher",
+
+  "browser_action": {    
+    "default_popup": "test.html",
+    "default_title": "Link Ninja"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],      
+      "js": ["init.js", "Underscore.js", "UnderscoreMixins.js", "prefs.js", "screen.js", "Targeting.js", "SVG.js", "TriggerHandler.js", "Selectable.js", "RectSelector.js", "LinkNinja.js", "testscript.js"]
+    }
+  ],
+  
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}

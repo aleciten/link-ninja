@@ -12,6 +12,7 @@ var Q         = require('q');
 var packageName            = 'linkNinja-'+pkg.version;
 var firefoxExtensionId     = 'linkNinja@aleciten.com';
 var firefoxPackageFileName = packageName+'.xpi';
+var chromePackageFileName  = packageName+'.xpi';
 var distPath               = 'dist';
 var buildPath              = 'build';
 
@@ -51,7 +52,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('clean', function () {
-    del.sync([buildPath, distPath]);
+    //del.sync([buildPath, distPath]);
 });
 
 gulp.task('build:firefox', ['clean'], function() {      
@@ -68,6 +69,12 @@ gulp.task('build:firefox', ['clean'], function() {
                .pipe(gulp.dest(path.join(buildPath, "firefox")));
 });
 
+gulp.task('build:chrome', ['clean'], function () {
+
+    gulp.src(["src/common/**", "src/chrome/**"])
+        .pipe(gulp.dest(path.join(buildPath, "chrome")));
+});
+
 gulp.task('dist:firefox', ['build:firefox'], function() {  
     return gulp.src("build/firefox/**")
                .pipe(gulp.dest(path.join(distPath, "firefox")))
@@ -75,4 +82,12 @@ gulp.task('dist:firefox', ['build:firefox'], function() {
                .pipe(gulp.dest(distPath));
 });
 
-gulp.task('default', ['build:firefox', 'run:firefox']);
+gulp.task('dist:chrome', ['build:chrome'], function () {
+    return gulp.src("build/chrome/**")
+               .pipe(gulp.dest(path.join(distPath, "chrome")));
+               //.pipe(zip(chromePackageFileName))
+               //.pipe(gulp.dest(distPath));
+});
+
+//gulp.task('default', ['build:firefox', 'run:firefox']);
+gulp.task('default', ['build:chrome']);
