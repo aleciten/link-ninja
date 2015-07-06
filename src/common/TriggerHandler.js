@@ -14,13 +14,7 @@
 (function (ns) {
     var _                  = ns._,
         screen             = ns.screen,
-        browserContextMenu = {
-            block: function () {},
-            unblock: function() {},
-            wasBlocked: function () { return false; },
-            showLastBlocked: function () {},
-            blockNext: function () {}
-        };//ns.browser.contextMenuHelper;
+        browserContextMenu = ns.browser.contextMenuHelper;
 
     var Trigger = function (args) {
         _.extend(this, args);       

@@ -13,4 +13,5 @@
 
 aleciten = (typeof aleciten != "undefined") ? aleciten : {};
 aleciten.linkNinja = {};
+aleciten.linkNinja.browser = {};
 aleciten.linkNinja.extensionId = "linkNinja@aleciten.com";

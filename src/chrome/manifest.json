@@ -1,3 +1,16 @@
+// This file is part of Link Ninja (http://github.com/aleciten/link-ninja)
+//
+// Copyright (C) 2014 Alejandro Becher
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 {
   "manifest_version": 2,
   "name": "Link Ninja",
@@ -19,15 +32,23 @@
     "default_title": "Link Ninja"
   },
   
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],      
-      "js": ["init.js", "Underscore.js", "UnderscoreMixins.js", "prefs.js", "screen.js", "Targeting.js", "SVG.js", "TriggerHandler.js", "Selectable.js", "RectSelector.js", "LinkNinja.js", "testscript.js"]
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["init.js", "Underscore.js", "UnderscoreMixins.js", "prefs.js", "screen.js", "contextMenuHelper.js", "actions.js", "Targeting.js", "SVG.js", "TriggerHandler.js", "Selectable.js", "RectSelector.js", "LinkNinja.js", "testscript.js"]
     }
   ],
   
   "permissions": [
     "activeTab",
+    "tabs",
+    "bookmarks",
+    "contextMenus",
     "https://ajax.googleapis.com/"
   ]
 }
